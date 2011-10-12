@@ -4,7 +4,44 @@
 "use strict";
 
 (function() {
-  var canvasInit, constants, controlsInit, keyDown, math_sqrt2, mouseCoordsWithinElement, mouseDown, mouseMove, mouseUp, mouseWheel, registerControlEvents, registerDOMEvents, sceneIdle, sceneInit, state, windowResize;
+  var canvasInit, constants, controlsInit, keyDown, lookAtToQuaternion, math_sqrt2, mouseCoordsWithinElement, mouseDown, mouseMove, mouseUp, mouseWheel, recordToVec3, recordToVec4, registerControlEvents, registerDOMEvents, sceneIdle, sceneInit, state, vec3ToRecord, vec4ToRecord, windowResize;
+  recordToVec3 = function(record) {
+    return [record.x, record.y, record.z];
+  };
+  recordToVec4 = function(record) {
+    return [record.x, record.y, record.z, record.w];
+  };
+  vec3ToRecord = function(vec) {
+    return {
+      x: vec[0],
+      y: vec[1],
+      z: vec[2]
+    };
+  };
+  vec4ToRecord = function(vec) {
+    return {
+      x: vec[0],
+      y: vec[1],
+      z: vec[2],
+      w: vec[3]
+    };
+  };
+  lookAtToQuaternion = function(lookAt) {
+    var eye, look, up, x, y, z;
+    eye = recordToVec3(lookAt.eye);
+    look = recordToVec3(lookAt.look);
+    up = recordToVec3(lookAt.up);
+    x = [0.0, 0.0, 0.0];
+    y = [0.0, 0.0, 0.0];
+    z = [0.0, 0.0, 0.0];
+    SceneJS_math_subVec3(look, eye, z);
+    SceneJS_math_cross3Vec3(up, z, x);
+    SceneJS_math_cross3Vec3(z, x, y);
+    SceneJS_math_normalizeVec3(x);
+    SceneJS_math_normalizeVec3(y);
+    SceneJS_math_normalizeVec3(z);
+    return SceneJS_math_newQuaternionFromMat3(x.concat(y, z));
+  };
   math_sqrt2 = Math.sqrt(2.0);
   constants = {
     canvas: {
