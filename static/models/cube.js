@@ -13,7 +13,7 @@ SceneJS.createScene({
             nodes: [
                 {
                     type: 'material',
-                    coreId: 'Cube-mat',
+                    coreId: 'cube-mat',
                     baseColor:
                         {
                             r: 0.64,
@@ -24,9 +24,9 @@ SceneJS.createScene({
                 },
                 {
                     type: 'geometry',
-                    coreId: 'Cube-mesh',
+                    coreId: 'cube-mesh',
                     primitive: 'triangles',
-                    resource: 'Cube-mesh',
+                    resource: 'cube-mesh',
                     positions: [1.0,1.0,-1.0,1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,1.0,-1.0,1.0,1.0,1.0,1.0,-1.0,1.0,-1.0,-1.0,1.0,-1.0,1.0,1.0,1.0,1.0,-1.0,1.0,1.0,1.0,1.0,-1.0,1.0,1.0,-1.0,-1.0,1.0,-1.0,-1.0,1.0,-1.0,1.0,-1.0,-1.0,1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,1.0,-1.0,1.0,1.0,-1.0,1.0,-1.0,1.0,1.0,1.0,1.0,1.0,-1.0,-1.0,1.0,-1.0,-1.0,1.0,1.0,],
                     indices: [0,1,2,0,2,3,4,7,6,4,6,5,8,9,10,8,10,11,12,13,14,12,14,15,16,17,18,16,18,19,20,21,22,20,22,23,],
                 },
@@ -34,6 +34,7 @@ SceneJS.createScene({
         },
         {
             type: 'lookAt',
+            id: 'main-lookAt',
             eye:
                 {
                     y: -6.50763988495,
@@ -55,6 +56,7 @@ SceneJS.createScene({
             nodes: [
                 {
                     type: 'camera',
+                    id: 'main-camera',
                     optics:
                         {
                             type: 'perspective',
@@ -66,6 +68,7 @@ SceneJS.createScene({
                     nodes: [
                         {
                             type: 'renderer',
+                            id: 'main-renderer',
                             clear:
                                 {
                                     color: true, 
@@ -81,10 +84,12 @@ SceneJS.createScene({
                             nodes: [
                                 {
                                     type: 'matrix',
+                                    id: 'light0-transform',
                                     elements: [-0.290864378214,0.955171227455,-0.055189050734,0.0,-0.771100878716,-0.199883162975,0.604524791241,0.0,0.566393375397,0.218391060829,0.794672250748,0.0,4.07624483109,1.00545394421,5.90386199951,1.0,],
                                     nodes: [
                                         {
                                             type: 'light',
+                                            id: 'light0',
                                             color:
                                                 {
                                                     r: 1.0,
@@ -106,10 +111,12 @@ SceneJS.createScene({
                                 },
                                 {
                                     type: 'matrix',
+                                    id: 'light1-transform',
                                     elements: [1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.32968401909,-2.12760996819,2.74223303795,1.0,],
                                     nodes: [
                                         {
                                             type: 'light',
+                                            id: 'light1',
                                             color:
                                                 {
                                                     r: 1.0,
@@ -131,15 +138,16 @@ SceneJS.createScene({
                                 },
                                 {
                                     type: 'matrix',
+                                    id: 'cube-transform',
                                     elements: [1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,],
                                     nodes: [
                                         {
                                             type: 'material',
-                                            coreId: 'Cube-mat',
+                                            coreId: 'cube-mat',
                                             nodes: [
                                                 {
                                                     type: 'geometry',
-                                                    coreId: 'Cube-mesh',
+                                                    coreId: 'cube-mesh',
                                                 },
                                             ],
                                         },
