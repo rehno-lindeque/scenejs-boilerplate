@@ -1,0 +1,15 @@
+{
+  "name": "your-project",
+  "version": "0.0.1",
+  "description": "A scenejs project",
+  "homepage": "http://project/homepage",
+  "author": "Your Name (http://firstname.surname.name)",
+  "private": true,
+  "directories": {
+    "static": "./static"
+  },
+  "dependencies": {
+    "coffee-script": ">=0.0.0"
+  }
+}
+
