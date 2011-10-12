@@ -4,7 +4,13 @@
 "use strict";
 
 (function() {
-  var canvasInit, constants, controlsInit, keyDown, lookAtToQuaternion, math_sqrt2, mouseCoordsWithinElement, mouseDown, mouseMove, mouseUp, mouseWheel, recordToVec3, recordToVec4, registerControlEvents, registerDOMEvents, sceneIdle, sceneInit, state, vec3ToRecord, vec4ToRecord, windowResize;
+  var canvasInit, constants, controlsInit, keyDown, lookAtToQuaternion, math_sqrt2, modifySubAttr, mouseCoordsWithinElement, mouseDown, mouseMove, mouseUp, mouseWheel, recordToVec3, recordToVec4, registerControlEvents, registerDOMEvents, sceneIdle, sceneInit, state, vec3ToRecord, vec4ToRecord, windowResize;
+  modifySubAttr = function(node, attr, subAttr, value) {
+    var attrRecord;
+    attrRecord = node.get(attr);
+    attrRecord[subAttr] = value;
+    return node.set(attr, attrRecord);
+  };
   recordToVec3 = function(record) {
     return [record.x, record.y, record.z];
   };
