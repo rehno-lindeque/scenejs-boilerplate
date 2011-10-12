@@ -135,15 +135,7 @@ SceneJS.createScene({
                                     nodes: [
                                         {
                                             type: 'material',
-                                            id: 'Cube-mesh-mat',
                                             coreId: 'Cube-mat',
-                                            baseColor:
-                                                {
-                                                    r: 0.64,
-                                                    b: 0.64,
-                                                    g: 0.64,
-                                                },
-                                            emit: 0.0,
                                             nodes: [
                                                 {
                                                     type: 'geometry',
