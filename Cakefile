@@ -6,6 +6,8 @@ appFiles  = [
   # omit src/ and .coffee to make the below lines a little shorter
   'scenejs.nodeattr'
   'scenejs.conversion'
+  'scenejs.orbitlookat'
+  'scenejs.zoomlookat'
   'constants'
   'math'
   'state'

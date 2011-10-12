@@ -7,4 +7,8 @@ math_sqrt2 = Math.sqrt 2.0
 constants =
   canvas:
     defaultSize: [512,512]
+  camera:
+    maxOrbitSpeed: Math.PI * 0.1
+    orbitSpeedFactor: 0.01
+    zoomSpeedFactor: 0.5
 
