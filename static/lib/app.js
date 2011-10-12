@@ -4,7 +4,7 @@
 "use strict";
 
 (function() {
-  var canvasInit, constants, controlsInit, keyDown, math_sqrt2, mouseCoordsWithinElement, mouseDown, mouseMove, mouseUp, mouseWheel, registerControlEvents, registerDOMEvents, sceneInit, state, windowResize;
+  var canvasInit, constants, controlsInit, keyDown, math_sqrt2, mouseCoordsWithinElement, mouseDown, mouseMove, mouseUp, mouseWheel, registerControlEvents, registerDOMEvents, sceneIdle, sceneInit, state, windowResize;
   math_sqrt2 = Math.sqrt(2.0);
   constants = {
     canvas: {
@@ -73,6 +73,7 @@
     return window.addEventListener('resize', windowResize, true);
   };
   registerControlEvents = function() {};
+  sceneIdle = function() {};
   canvasInit = function() {
     return windowResize();
   };
@@ -80,7 +81,9 @@
   controlsInit = function() {};
   canvasInit();
   sceneInit();
-  state.scene.start;
+  state.scene.start({
+    idleFunc: sceneIdle
+  });
   $(function() {
     controlsInit();
     registerDOMEvents();

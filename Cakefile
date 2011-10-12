@@ -13,6 +13,7 @@ appFiles  = [
   'events.keyboard'
   'events.controls'
   'events.register'
+  'events.idle'
   'events.init'
 ]
 

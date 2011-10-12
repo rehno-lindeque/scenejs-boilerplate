@@ -12,6 +12,7 @@ controlsInit = () ->
 canvasInit()
 sceneInit()
 state.scene.start
+  idleFunc: sceneIdle
 
 # Initialize the gui controls and register events once the rest of the document has completely loaded
 $ () -> 
